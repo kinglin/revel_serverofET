@@ -1,0 +1,12 @@
+{
+	"registerResult": .registerResult
+}
+{
+	"getResult": .response.GetResult
+	"user": .response.User
+	"configuration": .response.Configuration
+	"notes": .response.Notes
+	"routes": .response.Routes
+	"coins": .response.Coins
+	"treasures": .response.Treasures
+}

@@ -1,0 +1,53 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<header class="hero-unit" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+      <div class="hero-text">
+        <h1>{{.greeting}}</h1>
+
+		{{range .errors}}
+		    <p style="color:#c00">
+		        {{.Message}}
+		    </p>
+		{{end}}
+		
+		<form action="/App/Login" method="POST">
+		    <input type="text" name="username" value="{{.username}}" />
+			<input type="password" name="password" value="{{.password}}" />
+		    <input type="submit" value="login" />
+		</form>
+		
+		<form action="/App/Register" method="POST">
+		    <input type="text" name="username" value="{{.username}}" />
+			<input type="password" name="password" value="{{.password}}" />
+		    <input type="submit" value="registe" />
+		</form>
+		
+		<form action="/App/GetAllUserData" method="POST">
+		    <input type="text" name="struserId" value="{{.struserId}}" />
+		    <input type="submit" value="getdata" />
+		</form>
+		
+		<form action="/App/SyncData" method="POST">
+		    <input type="text" name="struserId" value="{{.struserId}}" />
+			<input type="text" name="json_allChangedData" value="{{.json_allChangedData}}" />
+		    <input type="submit" value="syncdata" />
+		</form>
+				
+        <p>{{.result}}</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}
